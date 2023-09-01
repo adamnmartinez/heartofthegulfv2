@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Noto+Nastaliq+Urdu&family=Reem+Kufi&family=Rubik:wght@300&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  margin: 0;
+  padding: 0;
+  max-width: none;
+  text-align: center;
+}
+
+:root {
+  font-size: 24px;
+  font-family: "Reem Kufi", sans-serif;
+}
+
+.title {
+  font-family: "Reem Kufi", sans-serif;
+  font-size: 2rem;
+  position: relative;
+  padding-top: 1.6rem;
+}
+
+.titleAR {
+  font-family: "Noto Nastaliq Urdu", sans-serif;
+  position: absolute;
+  top: 1rem;
+  width: 100%;
+  opacity: 25%;
+}
+
+.catch {
+  position: relative;
+  overflow: hidden;
+  padding-top: 50px;
+  font-size: 2.5rem;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.catch img {
+  height: 60vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  object-fit: cover;
+  opacity: 80%;
+}
+
+.catchOverlay {
+  padding-top: 1.5rem;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.catch button {
+  padding: 1em;
+  font-size: 0.7rem;
+  font-family: "Reem Kufi", sans-serif;
+  border-radius: 32px;
+  background-color: white;
+  border-style: solid;
+}
+
+.catch button:hover {
+  color: white;
+  background-color: rgb(210, 86, 86);
+  border-color: rgb(255, 255, 255);
+  border-style: solid;
+}
+
+.homePageWrapper a {
+  font-size: 1.2rem;
+  color: black;
+  text-decoration: none;
+}
+
+.homePageWrapper a:hover {
+  color: rgb(210, 86, 86);
+}
+
+.places {
+  font-family: "Reem Kufi", sans-serif;
+  font-size: 1.2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+div .location {
+  font-size: 1rem;
+  display: inline-block;
+  padding: 0.5em;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.delivery {
+  padding-top: 1rem;
+  font-size: 1rem;
+  font-family: "Reem Kufi", sans-serif;
+}
+
+.icon img {
+  width: 3rem;
+  height: 3rem;
+  padding: 0.5rem;
+  display: inline-block;
+}
