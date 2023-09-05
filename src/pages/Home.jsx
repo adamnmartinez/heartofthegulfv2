@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import doordash from "../assets/icons/doordash.svg";
 import grubhub from "../assets/icons/grubhub.svg";
 import uber from "../assets/icons/uber.svg";
@@ -6,26 +7,16 @@ import brisket from "../assets/gifs/brisket.gif";
 import tomato from "../assets/gifs/tomato.gif";
 import stir from "../assets/gifs/stir.gif";
 import soup from "../assets/gifs/soup.gif";
-import salad from "../assets/gifs/salad.gif";
+import MenuPage from "./Menu";
 
 const locationDirections = "https://maps.google.com";
-
-function TitleHOTG() {
-  return (
-    <div className="title">
-      Heart of the Gulf
-      <div className="titleAR">قلب الخليج</div>
-    </div>
-  );
-}
+const banner = soup;
 
 export default function HomePage() {
-  console.log("HomePage Loaded");
   return (
     <div className="homePageWrapper">
-      <TitleHOTG />
       <div className="catch">
-        <img src={soup}></img>
+        <img src={banner}></img>
         <div className="catchOverlay">
           Authentic Yemeni and Emirati cuisine, right here in California.
           <br />
@@ -34,6 +25,7 @@ export default function HomePage() {
       </div>
       <div className="places">
         Find Us!
+        <hr className="shortline" />
         <div>
           <div className="location">
             <a href={locationDirections} target="_blank">
@@ -63,6 +55,21 @@ export default function HomePage() {
             Sun | Closed
             <br />
             +1 (323) 222-8918
+          </div>
+          <div className="location">
+            <a href={locationDirections} target="_blank">
+              743 Division Street
+            </a>
+            <br />
+            Santa Cruz, CA
+            <br />
+            Mon-Thurs | 8am - 10pm
+            <br />
+            Fri-Sat | 8am - 5pm
+            <br />
+            Sun | Closed
+            <br />
+            +1 (831) 370-7051
           </div>
         </div>
       </div>

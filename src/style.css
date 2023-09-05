@@ -17,6 +17,72 @@ body {
   font-family: "Reem Kufi", sans-serif;
 }
 
+.navList {
+  padding: 10px;
+  margin: 0;
+  overflow: hidden;
+  background-color: rgb(210, 86, 86);
+  text-align: left;
+}
+
+.navBtn {
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  border: none;
+  font-family: "Reem Kufi", sans-serif;
+  padding: 0.5vw;
+  margin-left: 0.5vw;
+  padding-left: 2.5vw;
+  padding-right: 2.5vw;
+  color: rgb(210, 86, 86);
+  border-color: white;
+  border-style: solid;
+  display: inline-block;
+}
+
+.takeoutBtn {
+  right: 1vw;
+  position: absolute;
+}
+
+.takeoutSideMenu {
+  width: 30%;
+  background-color: white;
+  text-align: left;
+  right: 0vw;
+  position: absolute;
+  padding: 1rem;
+  border-radius: 20px;
+  border-left: double;
+  border-bottom: double;
+  z-index: 1;
+}
+
+.navBtn:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(220, 110, 110);
+  border-color: white;
+  border-style: solid;
+}
+
+.navitem {
+  list-style-type: none;
+  padding: 8px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.titleBtn {
+  border-style: none;
+  background-color: white;
+}
+
+.titleBtn:hover {
+  border-style: none;
+  background-color: white;
+  color: rgb(210, 86, 86);
+}
+
 .title {
   font-family: "Reem Kufi", sans-serif;
   font-size: 2rem;
@@ -99,6 +165,8 @@ div .location {
   padding: 0.5em;
   padding-left: 30px;
   padding-right: 30px;
+  width: 14rem;
+  vertical-align: top;
 }
 
 .delivery {
@@ -112,4 +180,159 @@ div .location {
   height: 3rem;
   padding: 0.5rem;
   display: inline-block;
+}
+
+.menuNav {
+  margin: 1.5rem;
+}
+
+button.menuBtn {
+  padding: 1em;
+  font-size: 0.7rem;
+  font-family: "Reem Kufi", sans-serif;
+  border-radius: 32px;
+  background-color: white;
+  border-style: none;
+  margin-right: 2.5rem;
+}
+
+button.menuBtn:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(210, 86, 86);
+}
+
+.menuNav button.selected {
+  color: rgb(210, 86, 86);
+  font-weight: bold;
+}
+
+.menuNav button.selected:hover {
+  background-color: white;
+  font-weight: bold;
+}
+
+.itemList {
+  list-style-type: none;
+  padding-left: 0;
+  padding-right: 1rem;
+}
+
+.itemCell {
+  font-size: 0.6rem;
+  border-color: black;
+  border-width: 5px;
+  border-style: double;
+  border-radius: 40px;
+  height: 64vh;
+  width: 15vw;
+  padding: 2vw;
+  margin: 30px;
+  vertical-align: top;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.itemCell:hover {
+  color: white;
+  background-color: rgb(200, 83, 83);
+}
+
+.itemCell img {
+  width: 12vw;
+  height: 12vw;
+  border-radius: 100px;
+  border-style: solid;
+}
+
+.itemCell img.newIcon {
+  width: 5vw;
+  height: 5vw;
+  margin-left: -1.3em;
+  border-style: none;
+  position: absolute;
+}
+
+.itemCell .itemName {
+  font-size: 0.7rem;
+  margin-top: 1em;
+}
+
+.itemCell p {
+  margin-top: 0;
+}
+
+button.orderBtn {
+  padding: 1em;
+  font-size: 0.6rem;
+  font-family: "Reem Kufi", sans-serif;
+  border-radius: 32px;
+  border-style: solid;
+  border-color: black;
+  background-color: white;
+}
+
+button.orderBtn:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(220, 110, 110);
+  border-color: white;
+}
+
+button.orderBtn:active {
+  background-color: rgb(200, 83, 83);
+}
+
+.contactBox {
+  padding-top: 2rem;
+}
+
+.contactInfo div {
+  font-size: 0.8rem;
+  vertical-align: top;
+  display: inline-block;
+  padding: 3rem;
+  padding-top: 0;
+  text-align: center;
+}
+
+.contactInfo hr {
+  padding: 0;
+  margin: 0;
+}
+
+.contactForm * {
+  font-family: "Reem Kufi";
+  font-size: 0.6rem;
+  border-radius: 20px;
+}
+
+.contactForm input {
+  text-align: center;
+  margin: 1vw;
+  margin-left: 2vw;
+  margin-right: 2vw;
+  width: 25vw;
+}
+
+.contactForm textarea {
+  padding: 1em;
+  resize: none;
+  width: 53vw;
+  height: 20vh;
+}
+
+.contactForm .submitContact {
+  padding: 0.2em;
+  padding-left: 20vw;
+  padding-right: 20vw;
+  background-color: white;
+}
+
+.contactForm .submitContact:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(210, 86, 86);
+  border-color: white;
+}
+
+hr.shortline {
+  width: 66%;
 }
