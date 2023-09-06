@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HomePage from "./pages/Home";
 import MenuPage from "./pages/Menu";
 import ContactPage from "./pages/Contact";
@@ -6,18 +6,53 @@ import NavBar from "./components/NavBar";
 import TakeoutMenu from "./components/TakeoutMenu";
 
 function App() {
-  const [page, setPage] = useState(<HomePage />);
+  const [page, setPage] = useState(<></>);
   const [takeoutVis, setTakeoutVis] = useState(false);
-  const [takeoutOrder, setTakeoutOrder] = useState({});
+  const [order, setOrder] = useState([]);
+
+  function addOrder(newitem) {
+    setOrder((oldOrder) => [...oldOrder, newitem]);
+  }
+
+  function removeOrder(item) {
+    const newArr = [...order];
+    const index = newArr.indexOf(item);
+    newArr.splice(index, 1);
+    setOrder(newArr);
+  }
 
   function toggleTakeout() {
     takeoutVis ? setTakeoutVis(false) : setTakeoutVis(true);
-    console.log(takeoutVis);
   }
+
+  //Pass necessary states, setters, and objects to pages
+  const menuPageElement = <MenuPage addOrder={addOrder} />;
+  const homePageElement = (
+    <HomePage setPage={setPage} menuPage={menuPageElement} />
+  );
+  const contactPageElement = <ContactPage />;
+  const navBarElement = (
+    <NavBar
+      setPage={setPage}
+      takeoutToggle={toggleTakeout}
+      homePage={homePageElement}
+      menuPage={menuPageElement}
+      contactPage={contactPageElement}
+      order={order}
+    />
+  );
+  const takeoutMenuElement = (
+    <TakeoutMenu
+      takeoutVis={takeoutVis}
+      order={order}
+      removeOrder={removeOrder}
+      addOrder={addOrder}
+    />
+  );
 
   function TitleHOTG() {
     return (
-      <button className="titleBtn" onClick={() => setPage(<HomePage />)}>
+      <button className="titleBtn" onClick={() => setPage(homePageElement)}>
         <div className="title">
           Heart of the Gulf
           <div className="titleAR">قلب الخليج</div>
@@ -26,12 +61,15 @@ function App() {
     );
   }
 
-  console.log("site loaded");
+  //Inital Render
+  useEffect(() => {
+    setPage(homePageElement);
+  }, []);
 
   return (
     <div>
-      <NavBar setter={setPage} takeoutToggle={toggleTakeout} />
-      <TakeoutMenu takeoutVis={takeoutVis} setTakeoutVis={setTakeoutVis} />
+      {navBarElement}
+      {takeoutMenuElement}
       <TitleHOTG />
       {page}
     </div>

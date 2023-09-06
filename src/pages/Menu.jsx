@@ -8,19 +8,7 @@ import {
 } from "./menuData";
 import newIcon from "../assets/icons/new.png";
 
-const order = [];
-
-function addOrder(item) {
-  order.push(item);
-  console.log(order);
-}
-
-function removeOrder(item) {
-  const index = order.indexOf(item);
-  order.splice(index, 1);
-}
-
-export default function MenuPage() {
+export default function MenuPage({ addOrder }) {
   const [currentMenu, setCurrentMenu] = useState(appMenu);
 
   function RenderMenu() {
@@ -95,5 +83,3 @@ export default function MenuPage() {
     </div>
   );
 }
-
-export { order, addOrder, removeOrder };

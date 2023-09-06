@@ -1,14 +1,64 @@
-import { useState } from "react";
-import { addOrder, order, removeOrder } from "../pages/Menu";
-import { allMenu } from "../pages/menuData";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
-export default function TakeoutMenu({ takeoutVis, setTakeoutVis }) {
+const reactSwal = withReactContent(Swal);
+
+let rawArr = [];
+
+function renderConfirmation(raw) {
+  console.log(raw);
+  reactSwal
+    .fire({
+      title: "Place Order?",
+      html: (
+        <div>
+          <ul className="takeoutList">{raw}</ul>
+          <hr />
+          <p className="confirmPrompt">
+            We'll send you a text when your order is ready.
+          </p>
+          <input
+            className="confirmPrompt"
+            type="number"
+            placeholder="Phone Number"
+          ></input>
+        </div>
+      ),
+      confirmButtonText: <p className="confirmPrompt">Confirm</p>,
+      confirmButtonColor: "rgb(210,86,86)",
+      showCancelButton: true,
+      cancelButtonText: <p className="confirmPrompt">Cancel</p>,
+    })
+    .then((response) => {
+      if (response.isConfirmed) {
+        reactSwal.fire({
+          title: "Order Placed!",
+          html: (
+            <div>
+              <p>Confirmation Code: {Math.floor(Math.random() * 9999)}</p>
+            </div>
+          ),
+          confirmButtonText: <p className="confirmPrompt">OK</p>,
+          confirmButtonColor: "rgb(210,86,86)",
+        });
+      }
+    });
+}
+
+export default function TakeoutMenu({
+  takeoutVis,
+  order,
+  removeOrder,
+  addOrder,
+}) {
   function RenderOrder() {
     let subtotal = 0;
     let tax = 0;
-    const orderObj = {};
-    const [orderItems, setOrderItems] = useState([]);
+    const listedItemsUnique = [];
+    const orderElementArray = [];
     const taxRate = 6.75;
+    const rawListItems = [];
+
     for (let item in order) {
       let qty = 0;
       for (let similar in order) {
@@ -16,28 +66,50 @@ export default function TakeoutMenu({ takeoutVis, setTakeoutVis }) {
           qty++;
         }
       }
-      if (!orderObj[order[item].name]) {
-        orderObj[order[item].name] = qty;
+      if (!listedItemsUnique.includes(order[item].name)) {
+        orderElementArray.push(
+          <li>
+            <div>
+              <button
+                className="orderOperation"
+                onClick={() => removeOrder(order[item])}
+              >
+                -
+              </button>
+              {order[item].name} x{qty}
+              <button
+                className="orderOperation"
+                onClick={() => addOrder(order[item])}
+              >
+                +
+              </button>
+            </div>
+          </li>,
+        );
+        rawListItems.push(
+          <li>
+            <div>
+              {order[item].name} x{qty}
+            </div>
+          </li>,
+        );
+        listedItemsUnique.push(order[item].name);
       }
       subtotal += order[item].price;
       tax = subtotal * (taxRate / 100);
     }
-    for (const [name, quantity] of Object.entries(orderObj)) {
-      orderItems.push(
-        <div>
-          <li>
-            {name} x{quantity}
-          </li>
-          <button onClick={() => addOrder()}>+</button>
-          <button onClick={() => removeOrder()}>-</button>
-        </div>,
-      );
-    }
+
+    rawArr = rawListItems;
+
     return (
       <>
-        <ul>{orderItems}</ul>
-        <p>Subtotal: {subtotal.toFixed(2)}</p>
-        <p>Tax: {tax.toFixed(2)}</p>
+        <ul className="takeoutList">{orderElementArray}</ul>
+        <p className="subtext">
+          <i>Subtotal: {subtotal.toFixed(2)}</i>
+        </p>
+        <p className="subtext">
+          <i>Tax: {tax.toFixed(2)}</i>
+        </p>
         <hr />
         <p>Total: {Number.parseFloat(subtotal + tax).toFixed(2)}</p>
       </>
@@ -51,8 +123,20 @@ export default function TakeoutMenu({ takeoutVis, setTakeoutVis }) {
         style={takeoutVis ? { display: "block" } : { display: "none" }}
       >
         <header className="orderHeader">My Order</header>
+        <p className="subtext">
+          All orders placed through our website are availible for curbside
+          pickup only.
+        </p>
         <hr />
         <RenderOrder />
+        <button
+          className="orderBtn"
+          onClick={() =>
+            rawArr === [] ? console.log("") : renderConfirmation(rawArr)
+          }
+        >
+          C H E C K O U T
+        </button>
       </div>
     </>
   );

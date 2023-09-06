@@ -12,7 +12,7 @@ import MenuPage from "./Menu";
 const locationDirections = "https://maps.google.com";
 const banner = soup;
 
-export default function HomePage() {
+export default function HomePage({ setPage, menuPage }) {
   return (
     <div className="homePageWrapper">
       <div className="catch">
@@ -20,7 +20,9 @@ export default function HomePage() {
         <div className="catchOverlay">
           Authentic Yemeni and Emirati cuisine, right here in California.
           <br />
-          <button className="orderNow">ORDER NOW</button>
+          <button className="orderNow" onClick={() => setPage(menuPage)}>
+            ORDER NOW
+          </button>
         </div>
       </div>
       <div className="places">
