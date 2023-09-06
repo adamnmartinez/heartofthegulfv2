@@ -244,7 +244,7 @@ button.menuBtn:hover {
 .itemCell img {
   width: 12vw;
   height: 12vw;
-  border-radius: 100px;
+  border-radius: 50%;
   border-style: solid;
 }
 
@@ -269,7 +269,7 @@ button.orderBtn {
   padding: 1em;
   font-size: 0.6rem;
   font-family: "Reem Kufi", sans-serif;
-  border-radius: 32px;
+  border-radius: 20px;
   border-style: solid;
   border-color: black;
   background-color: white;
