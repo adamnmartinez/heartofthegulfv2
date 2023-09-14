@@ -38,6 +38,16 @@ body {
   border-color: white;
   border-style: solid;
   display: inline-block;
+  transition: border-color 200ms;
+  transition: color 200ms;
+  transition: background-color 200ms;
+}
+
+.navBtn:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(220, 110, 110);
+  border-color: white;
+  border-style: solid;
 }
 
 .takeoutBtn {
@@ -62,13 +72,6 @@ body {
   z-index: 1;
 }
 
-.navBtn:hover {
-  color: rgb(255, 255, 255);
-  background-color: rgb(220, 110, 110);
-  border-color: white;
-  border-style: solid;
-}
-
 .navitem {
   list-style-type: none;
   padding: 8px;
@@ -79,6 +82,7 @@ body {
 .titleBtn {
   border-style: none;
   background-color: white;
+  transition: color 200ms;
 }
 
 .titleBtn:hover {
@@ -137,6 +141,7 @@ body {
   border-radius: 32px;
   background-color: white;
   border-style: solid;
+  transition: background-color 200ms;
 }
 
 .catch button:hover {
@@ -198,6 +203,7 @@ button.menuBtn {
   background-color: white;
   border-style: none;
   margin-right: 2.5rem;
+  transition: background-color 200ms;
 }
 
 button.menuBtn:hover {
@@ -224,8 +230,8 @@ button.menuBtn:hover {
 .itemCell {
   font-size: 0.6rem;
   border-color: black;
-  border-width: 5px;
-  border-style: double;
+  border-width: 2px;
+  border-style: solid;
   border-radius: 40px;
   height: 64vh;
   width: 15vw;
@@ -234,6 +240,8 @@ button.menuBtn:hover {
   vertical-align: top;
   display: inline-block;
   overflow: hidden;
+  transition: color 200ms;
+  transition: background-color 200ms;
 }
 
 .itemCell:hover {
@@ -246,6 +254,8 @@ button.menuBtn:hover {
   height: 12vw;
   border-radius: 50%;
   border-style: solid;
+  border-color: black;
+  border-width: 2px;
 }
 
 .itemCell img.newIcon {
@@ -273,6 +283,20 @@ button.orderBtn {
   border-style: solid;
   border-color: black;
   background-color: white;
+  transition: border-color 200ms;
+  transition: background-color 200ms;
+}
+
+.orderBtn.close {
+  background-color: rgb(220, 220, 220);
+}
+
+.orderBtn.checkout {
+  background-color: rgb(255, 216, 216);
+}
+
+.takeoutSideMenu .orderBtn {
+  margin-right: 1em;  
 }
 
 button.orderBtn:hover {
@@ -282,7 +306,7 @@ button.orderBtn:hover {
 }
 
 button.orderBtn:active {
-  background-color: rgb(200, 83, 83);
+  background-color: rgb(190, 73, 73);
 }
 
 .contactBox {

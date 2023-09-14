@@ -4,6 +4,13 @@ import withReactContent from "sweetalert2-react-content";
 const reactSwal = withReactContent(Swal);
 
 let rawArr = [];
+let total = 0;
+
+function checkout(raw){
+  if (raw.length > 0){
+    renderConfirmation(raw)
+  }
+}
 
 function renderConfirmation(raw) {
   console.log(raw);
@@ -13,6 +20,7 @@ function renderConfirmation(raw) {
       html: (
         <div>
           <ul className="takeoutList">{raw}</ul>
+          <p>Order Total: {total}</p>
           <hr />
           <p className="confirmPrompt">
             We'll send you a text when your order is ready.
@@ -47,6 +55,7 @@ function renderConfirmation(raw) {
 
 export default function TakeoutMenu({
   takeoutVis,
+  takeoutToggle,
   order,
   removeOrder,
   addOrder,
@@ -97,6 +106,8 @@ export default function TakeoutMenu({
       }
       subtotal += order[item].price;
       tax = subtotal * (taxRate / 100);
+
+      total = Number.parseFloat(subtotal + tax).toFixed(2)
     }
 
     rawArr = rawListItems;
@@ -130,12 +141,20 @@ export default function TakeoutMenu({
         <hr />
         <RenderOrder />
         <button
-          className="orderBtn"
+          className="orderBtn checkout"
           onClick={() =>
-            rawArr === [] ? console.log("") : renderConfirmation(rawArr)
+            checkout(rawArr)
           }
         >
           C H E C K O U T
+        </button>
+        <button
+          className="orderBtn close"
+          onClick={() =>
+            takeoutToggle()
+          }
+        >
+          C L O S E
         </button>
       </div>
     </>

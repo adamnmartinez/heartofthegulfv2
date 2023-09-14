@@ -44,6 +44,7 @@ function App() {
   const takeoutMenuElement = (
     <TakeoutMenu
       takeoutVis={takeoutVis}
+      takeoutToggle={toggleTakeout}
       order={order}
       removeOrder={removeOrder}
       addOrder={addOrder}

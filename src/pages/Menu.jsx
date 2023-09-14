@@ -10,7 +10,7 @@ import newIcon from "../assets/icons/new.png";
 
 export default function MenuPage({ addOrder }) {
   const [currentMenu, setCurrentMenu] = useState(appMenu);
-
+  
   function RenderMenu() {
     const itemList = [];
     for (const [key, value] of Object.entries(currentMenu)) {
