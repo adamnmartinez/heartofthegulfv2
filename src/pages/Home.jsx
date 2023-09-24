@@ -21,14 +21,23 @@ export default function HomePage({ setPage, menuPage }) {
           Authentic Yemeni and Emirati cuisine, right here in California.
           <br />
           <button className="orderNow" onClick={() => setPage(menuPage)}>
-            ORDER NOW
+            Order Now
+          </button>
+        </div>
+      </div>
+      <div className="catchmobile">
+        <div className="catchOverlay">
+          Authentic Yemeni and Emirati cuisine, right here in California.
+          <br />
+          <button className="orderNow" onClick={() => setPage(menuPage)}>
+            Order Now
           </button>
         </div>
       </div>
       <div className="places">
         Find Us!
         <hr className="shortline" />
-        <div>
+        <div className="locations">
           <div className="location">
             <a href={locationDirections} target="_blank">
               1102 Overland Avenue
