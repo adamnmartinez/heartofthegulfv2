@@ -53,12 +53,18 @@ function App() {
 
   function TitleHOTG() {
     return (
-      <button className="titleBtn" onClick={() => setPage(homePageElement)}>
-        <div className="title">
-          Heart of the Gulf
-          <div className="titleAR">قلب الخليج</div>
-        </div>
-      </button>
+      <>
+        <button className="titleBtn" onClick={() => setPage(homePageElement)}>
+          <div className="title">
+            Heart of the Gulf
+            <div className="titleAR">قلب الخليج</div>
+          </div>
+        </button>
+        <br></br>
+        <div>by <a href="https://www.github.com/adamnmartinez">Adam Martinez</a></div>
+        <br></br>
+      </>
+      
     );
   }
 
